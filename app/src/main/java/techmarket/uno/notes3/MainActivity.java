@@ -1,6 +1,8 @@
 package techmarket.uno.notes3;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -23,5 +25,9 @@ public class MainActivity extends AppCompatActivity {
         notes.add(new Note("Супермаркет","Купить стиральную машину","Понедельник",1));
         notes.add(new Note("Почта","Забрать посылку","Четверг",3));
         notes.add(new Note("Здоровье","Не пить","Суббота",2));
+        NotesAdapter adapter = new NotesAdapter(notes);
+        //recyclerViewNotes.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        recyclerViewNotes.setLayoutManager(new GridLayoutManager(this,2));
+        recyclerViewNotes.setAdapter(adapter);
     }
 }
